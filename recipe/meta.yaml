@@ -8,7 +8,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: car_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/car_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/car/car_{{ version }}.tar.gz
@@ -27,6 +26,7 @@ build:
 # Suggests: alr4, boot, coxme, leaps, lmtest, Matrix, MatrixModels, rgl (>= 0.93.960), sandwich, SparseM, survival, survey
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
